@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>异步编程</title>
+</head>
+<body>
+<button onclick="day()">点击</button>
+<script type="text/javascript">
+    function day() {
+        setTimeout(() => {
+            console.log("你好")
+        }, 3000);
+        setTimeout(() => {
+            console.log("你好啊")
+        }, 6000)
+
+    }
+</script>
+</body>
+</html>
