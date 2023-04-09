@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="start" onclick="jishi()">开始计时</button>
+<script type="text/javascript">
+    class c {
+        constructor() {
+        };
+        f = () => {
+            var time = new Date();
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+            return hours + ':' + minutes + ':' + seconds;
+        }
+    }
+    var t = new c();
+    var myVar;
+    function begin() {
+        myVar=setInterval(() => {
+            console.log(t.f());
+        }, 1000)
+    }
+    function stop() {
+        clearInterval(myVar);
+    }
+    function jishi() {
+        if(myVar){
+            stop();
+        }else {
+            begin();
+        }
+    }
+</script>
+</body>
+</html>
