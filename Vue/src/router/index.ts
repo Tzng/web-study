@@ -8,11 +8,6 @@ const router = createRouter({
       name: '模板语法',
       component: () => import('../views/S0415TemplateSyntax.vue')
     },
-    {
-      path: '/todolist',
-      name: '模板语法',
-      component: () => import('../views/S0416TodoList.vue')
-    },
   ]
 })
 

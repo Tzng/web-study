@@ -14,4 +14,10 @@ const toNew = () => {
 }
 </script>
 <style>
+h2{
+    margin-top: 10px;
+}
+button {
+    margin: 10px;
+}
 </style>

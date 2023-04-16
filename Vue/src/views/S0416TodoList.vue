@@ -15,6 +15,12 @@
     margin-top: 16px;
     height: 450px;
 }
+h2{
+    margin-top: 10px;
+}
+button {
+    margin: 10px;
+}
 </style>
 <script setup lang="ts">
 </script>
