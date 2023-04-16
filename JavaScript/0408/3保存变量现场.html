@@ -16,9 +16,10 @@
     </ul>
 </body>
 <script type="text/javascript">
-    var nodes = document.getElementsByTagName("li");
+    var nodes = document.getElementsByTagName("li");  //getElementsByTagName() 方法获取所有 li 元素
     for(i = 0;i<nodes.length;i+= 1){
         // 这里写代码
+        console.log(this.innerHTML);//innerHTML 是一个 HTML DOM 元素的属性，用于设置或返回指定标签之间的 HTML 内容。
     }
 </script>
 </html>
