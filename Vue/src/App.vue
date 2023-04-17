@@ -8,6 +8,8 @@ import {RouterLink, RouterView} from 'vue-router'
         <div class="menu">
             <RouterLink to="/template">2023年4月15日</RouterLink>
             <RouterLink to="/todolist">2023年4月16日</RouterLink>
+            <RouterLink to="/router">2023年4月17日</RouterLink>
+            <RouterLink to="/components">2023年4月18日</RouterLink>
         </div>
     </header>
     <main>
