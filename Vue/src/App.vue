@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import {RouterLink, RouterView} from 'vue-router'
-</script>
+import {RouterLink, RouterView} from 'vue-router'</script>
 
 <template>
     <header>
@@ -8,6 +7,8 @@ import {RouterLink, RouterView} from 'vue-router'
         <div class="menu">
             <RouterLink to="/template">2023年4月15日</RouterLink>
             <RouterLink to="/todolist">2023年4月16日</RouterLink>
+          <RouterLink to="/router">2023年4月17日</RouterLink>
+          <RouterLink to="/test">test</RouterLink>
         </div>
     </header>
     <main>
