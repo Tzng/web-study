@@ -23,6 +23,11 @@ const router = createRouter({
       name: '深入组件',
       component: () => import('../views/S0418Components.vue')
     },
+    {
+      path: '/fetch',
+      name: '网络请求',
+      component: () => import('../views/S0419Fetch.vue')
+    },
   ]
 })
 
