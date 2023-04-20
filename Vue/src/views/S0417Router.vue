@@ -9,7 +9,6 @@
 
 <script setup lang="ts">
 
-// 去new页面
 
 </script>
 <style>
