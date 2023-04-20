@@ -8,15 +8,9 @@
 </template>
 
 <script setup lang="ts">
-import {resolve} from 'vue-router'
 
 // 去new页面
-const toNew = () => {
-  const { href } = resolve({
-    name: 'new'
-  })
-  window.open(href, '_blank')
-}
+
 </script>
 <style>
 h2{
