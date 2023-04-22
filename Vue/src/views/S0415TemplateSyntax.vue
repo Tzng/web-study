@@ -32,10 +32,13 @@
   </div>
   <h2>7 事件处理</h2>
   <div>
-    <li @click"p7">1</li>
-    <li>2</li>
-    <li>3</li>
+    <li @click="li71">1</li>
+    <li @click="li72">2</li>
+    <li @click="li73">3</li>
+      <span>{{temp7}}</span>
   </div>
+  <h2>9 组件 v-model</h2>
+    <input v-model="searchText">
 </template>
 
 <script lang="ts" setup>
@@ -75,16 +78,30 @@ const red5 = ref(true)
 const arr6 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 //--------------------- 6 列表渲染1代码结束---------------------
 //-----------------7 事件处理的代码开始-----------------
-
-const print7 = {
-  methods: {
-    p7(n) {
-      alert(n)
-    }
-  }
-};
-
+const temp7 = ref()
+const li71 = () => {
+  temp7.value=1
+}
+const li72 = () => {
+    temp7.value=2
+}
+const li73 = () => {
+    temp7.value=3
+}
 //--------------------- 7 事件处理代码结束---------------------
+//-----------------8 生命周期的代码开始-----------------
+
+//---------------------8 生命周期代码结束---------------------
+//-----------------9 组件 v-model的代码开始-----------------
+/**
+ * <input v-model.lazy="msg" />每次 input 事件后更新数据 (IME 拼字阶段的状态例外)
+ * <input v-model.number="age" />让用户输入自动转换为数字
+ * <input v-model.trim="msg" />默认自动去除用户输入内容中两端的空格
+ */
+
+//---------------------9 组件 v-model代码结束---------------------
+
+
 
 </script>
 <style>
