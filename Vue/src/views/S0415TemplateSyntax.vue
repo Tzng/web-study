@@ -32,17 +32,37 @@
   </div>
   <h2>7 事件处理</h2>
   <div>
-    <li @click="li71">1</li>
-    <li @click="li72">2</li>
-    <li @click="li73">3</li>
+    <li @click="li7(1)">1</li>
+    <li @click="li7(2)">2</li>
+    <li @click="li7(3)">3</li>
       <span>{{temp7}}</span>
   </div>
+  <h2>8 生命周期</h2>
+  <span>{{life8}}</span>
   <h2>9 组件 v-model</h2>
     <input v-model="searchText">
+  <span >{{searchText}}</span>
+  <h2>10 表单</h2>
+  <div>
+    <label for="jack">
+      <input type="checkbox" v-model="Names" id="jack" value="Jack">
+      Jack
+    </label>
+    <label for="rose">
+      <input type="checkbox" v-model="Names" id="rose" value="Rose">
+      Rose
+    </label>
+    <label for="tom">
+      <input type="checkbox" v-model="Names" id="tom" value="Tom">
+      Tom
+    </label>
+    <br>
+    <span >选中的名字：{{Names}}</span>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import {ref} from 'vue';
+import {onMounted, ref} from 'vue';
 
 //-----------------1 模板语法1的代码开始-----------------
 const temp1 = ref()
@@ -79,17 +99,16 @@ const arr6 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 //--------------------- 6 列表渲染1代码结束---------------------
 //-----------------7 事件处理的代码开始-----------------
 const temp7 = ref()
-const li71 = () => {
-  temp7.value=1
-}
-const li72 = () => {
-    temp7.value=2
-}
-const li73 = () => {
-    temp7.value=3
+const li7 = (num) => {
+    temp7.value=num
 }
 //--------------------- 7 事件处理代码结束---------------------
+
 //-----------------8 生命周期的代码开始-----------------
+const life8=ref()
+onMounted(()=>{
+  life8.value="页面渲染完成"
+})
 
 //---------------------8 生命周期代码结束---------------------
 //-----------------9 组件 v-model的代码开始-----------------
@@ -98,8 +117,14 @@ const li73 = () => {
  * <input v-model.number="age" />让用户输入自动转换为数字
  * <input v-model.trim="msg" />默认自动去除用户输入内容中两端的空格
  */
+const searchText=ref()
 
 //---------------------9 组件 v-model代码结束---------------------
+//-----------------10 表单的代码开始----------------
+const Names = ref([])
+
+
+//--------------------- 10 表单代码结束---------------------
 
 
 
