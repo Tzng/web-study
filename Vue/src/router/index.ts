@@ -28,6 +28,11 @@ const router = createRouter({
       name: '网络请求',
       component: () => import('../views/S0419Fetch.vue')
     },
+    {
+      path: '/new',
+      name: '17新页面',
+      component: () => import('../views/0417new.vue')
+    },
   ]
 })
 
