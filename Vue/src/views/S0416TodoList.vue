@@ -6,11 +6,34 @@
         <div class="todoList">
           <input type="text" placeholder="请输入您的任务名称"  @keyup.enter="add($event)" v-model="inputValue" >
           <div v-for="item in todos" @mouseenter="item.mouse = !item.mouse" @mouseleave="item.mouse = !item.mouse">
-            <label :for="item.key">
-              <input type="checkbox"  v-model="item.check" >
-              <span :class="{completed:item.check}" >{{item.lab}}</span>
-              <button v-if="item.mouse" @click="inputChange(item)">删除</button>
+            <label :for="item.key"
+                   v-if="item.mouse"
+                   :style="{backgroundColor:backGroundColor}"
+                   @mouseenter="()=>{backGroundColor='white'}"
+                   @mouseleave="()=>{backGroundColor=''}">
+              <input type="checkbox"  v-model="item.check" @click="addAllCheck(item)">
+              <span :class="{completed:item.check}">{{item.lab}}</span>
             </label>
+            <label :for="item.key"
+                   v-else>
+              <input type="checkbox"  v-model="item.check"  >
+              <span :class="{completed:item.check}">{{item.lab}}</span>
+            </label>
+            <div class="right">
+              <button v-if="item.mouse" @click="inputChange(item)">编辑</button>
+              <button v-if="item.mouse" @click="inputChange(item)">删除</button>
+            </div>
+          </div>
+          <div class="allCompleted">
+            <label @click="allCheck(item)">
+              <input type="checkbox" >
+              已完成{{allcheck.length+1}}/全部 {{todos.length}}
+            </label>
+          </div>
+          <div v-for="item in todos" class="allCompletedBu">
+            <button @click="deletAllCheck(item)">清除已完成任务</button>
+            <button @click="hideAllCheck(item);(show = !show)" v-if="show">隐藏已完成</button>
+            <button @click="(show = !show) ; showAllCheck(item)" v-else>显示已完成</button>
           </div>
         </div>
     </div>
@@ -19,8 +42,11 @@
 import {ref} from "vue";
 
 const inputValue=ref('')
-var todos =ref([])
-const del=ref()
+const todos = ref([]);
+const backGroundColor = ref()
+const show = ref(true)
+const allcheck = ref([])
+
 const inputChange = (item) => {
   const index=todos.value.findIndex((value)=>value.key===item.key)//找到用户点击的那条数据在数组中的下标
   const selectItem = todos.value[index]
@@ -30,8 +56,13 @@ const inputChange = (item) => {
     selectItem.check=true
   }
   todos.value[index]=selectItem
+  //如果用户点击的那套数据的exist为true，那么就将这条数据从数组中删除
+  if(selectItem.exist){
+    todos.value.splice(index,1)
+  }
   console.log(todos.value)
 }
+//添加任务
 const add = (e) => {
   const newItem = {
     key:new Date().getTime(),
@@ -43,8 +74,33 @@ const add = (e) => {
   const newList=[newItem,...todos.value]
   todos.value=[...newList]
 }
-
-
+const addAllCheck = (e) => {
+  //将所有check为true的数据另存到新的数组中
+  allcheck.value= todos.value.filter((value)=>value.check)
+}
+//全选
+const allCheck = (e) => {
+    todos.value.forEach((value)=>{
+      value.check=true})
+}
+//清除已完成任务
+const deletAllCheck = (e) => {
+  //将check为true的数据从数组中删除
+  todos.value=todos.value.filter((value)=>!value.check)
+}
+//隐藏已完成
+const hideAllCheck = (e) => {
+  todos.value=todos.value.filter((value)=>!value.check)
+}
+//显示已完成
+const showAllCheck = (e) => {
+  todos.value=[...todos.value,...allcheck.value]
+}
+//背景色  是否可以这样用  感觉上面太冗余了
+const color = () => {
+  if(todos.value.mouse) {
+    backGroundColor.value = 'white'
+  }}
 </script>
 <style>
 .todoList{
@@ -60,6 +116,23 @@ button {
 }
 .completed{
   text-decoration: line-through;
+}
+.allCompleted{
+  left:0;
+  bottom:0;
+  position: absolute;
+  padding: 10px;
+  margin-left: 5px;
+}
+.allCompletedBu{
+  right:0;
+  bottom:0;
+  position: absolute
+}
+.right{
+  right:0;
+  bottom:0;
+  position: absolute
 }
 </style>
 <script setup lang="ts">
