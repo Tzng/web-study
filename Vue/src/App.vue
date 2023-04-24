@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import {RouterLink, RouterView} from 'vue-router'
-</script>
+import {RouterLink, RouterView} from 'vue-router'</script>
 
 <template>
     <header>
         <h1>Vue 学习计划</h1>
         <div class="menu">
-            <RouterLink to="/template">2023年4月15日</RouterLink>
-            <RouterLink to="/todolist">2023年4月16日</RouterLink>
-            <RouterLink to="/router">2023年4月17日</RouterLink>
+            <RouterLink to="/template">2023年4月15日模板语法</RouterLink>
+            <RouterLink to="/todolist">2023年4月16日待办列表</RouterLink>
+          <RouterLink to="/todolist2">2023年4月16日待办列表二</RouterLink>
+            <RouterLink to="/router">2023年4月17日路由</RouterLink>
             <RouterLink to="/components">2023年4月18日</RouterLink>
             <RouterLink to="/fetch">2023年4月19日</RouterLink>
+
         </div>
     </header>
     <main>
         <RouterView/>
     </main>
 </template>
-
 <style scoped>
 header {
     width: 320px;

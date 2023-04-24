@@ -14,6 +14,11 @@ const router = createRouter({
       component: () => import('../views/S0416TodoList.vue')
     },
     {
+      path: '/todolist2',
+      name: '待办列表2',
+      component: () => import('../views/S0416TodoList2.vue')
+    },
+    {
       path: '/router',
       name: '路由',
       component: () => import('../views/S0417Router.vue')
