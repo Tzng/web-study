@@ -36,7 +36,7 @@ const router = createRouter({
     {
       path: '/new',
       name: '17新页面',
-      component: () => import('../views/0417new.vue')
+      component: () => import('../views/S0417new.vue')
     },
   ]
 })
