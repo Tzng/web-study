@@ -36,7 +36,7 @@
             </label>
           </div>
           <div v-for="item in todos" class="allCompletedBu">
-            <button @click="deletAllCheck(item)">清除已完成任务</button>
+            <button @click="deleteAllCheck(item)">清除已完成任务</button>
             <button @click="hideAllCheck(item);(show = !show)" v-if="show">隐藏已完成</button>
             <button @click="(show = !show) ; showAllCheck(item)" v-else>显示已完成</button>
           </div>
@@ -53,8 +53,8 @@ const show = ref(true)
 const allcheck = ref([])
 const edit = ref(false)
 
-const inputChange = (item) => {
-  const index=todos.value.findIndex((value)=>value.key===item.key)//找到用户点击的那条数据在数组中的下标
+const inputChange = (item: { key: any; }) => {
+  const index=todos.value.findIndex((value: { key: any; })=>value.key===item.key)//找到用户点击的那条数据在数组中的下标
   const selectItem = todos.value[index]
   if(selectItem.check){
     selectItem.check=false
@@ -69,15 +69,15 @@ const inputChange = (item) => {
   console.log(todos.value)
 }
 //编辑用户选中的数据
-const editChange = (item) => {
-  const index=todos.value.findIndex((value)=>value.key===item.key)//找到用户点击的那条数据在数组中的下标
+const editChange = (item: { key: any; }) => {
+  const index=todos.value.findIndex((value: { key: any; })=>value.key===item.key)//找到用户点击的那条数据在数组中的下标
   const selectItem = todos.value[index]
   selectItem.lab=inputValue.value
   todos.value[index]=selectItem
   console.log(todos.value)
 }
 //添加任务
-const add = (e) => {
+const add = (e: { target: { value: any; }; }) => {
   const newItem = {
     key:new Date().getTime(),
     lab:e.target.value,
@@ -88,33 +88,28 @@ const add = (e) => {
   const newList=[newItem,...todos.value]
   todos.value=[...newList]
 }
-const addAllCheck = (e) => {
+const addAllCheck = (e:string) => {
   //将所有check为true的数据另存到新的数组中
-  allcheck.value= todos.value.filter((value)=>value.check)
+  allcheck.value= todos.value.filter((value: { check: any; })=>value.check)
 }
 //全选
-const allCheck = (e) => {
-    todos.value.forEach((value)=>{
+const allCheck = (e:string) => {
+    todos.value.forEach((value: { check: boolean; })=>{
       value.check=true})
 }
 //清除已完成任务
-const deletAllCheck = (e) => {
+const deleteAllCheck = (e:string) => {
   //将check为true的数据从数组中删除
-  todos.value=todos.value.filter((value)=>!value.check)
+  todos.value=todos.value.filter((value: { check: any; })=>!value.check)
 }
 //隐藏已完成
-const hideAllCheck = (e) => {
-  todos.value=todos.value.filter((value)=>!value.check)
+const hideAllCheck = (e:string) => {
+  todos.value=todos.value.filter((value: { check: any; })=>!value.check)
 }
 //显示已完成
-const showAllCheck = (e) => {
+const showAllCheck = (e:string) => {
   todos.value=[...todos.value,...allcheck.value]
 }
-//背景色  是否可以这样用  感觉上面太冗余了
-const color = () => {
-  if(todos.value.mouse) {
-    backGroundColor.value = 'white'
-  }}
 </script>
 <style>
 .todoList{
