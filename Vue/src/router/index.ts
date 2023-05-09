@@ -1,4 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router'
+import S0417new from "@/views/S0417new.vue";
+import S0417Router from "@/views/S0417Router.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,7 +28,7 @@ const router = createRouter({
         {
             path: '/router',
             name: '路由',
-            component: () => import('../views/S0417Router.vue')
+            component: S0417Router
         },
         {
             path: '/components',
@@ -39,10 +41,28 @@ const router = createRouter({
             component: () => import('../views/S0419Fetch.vue')
         },
         {
-            path: '/new',
+            path: '/new/:id',
             name: '17新页面',
-            component: () => import('../views/S0417new.vue')
+            component: S0417new,
+            children: [
+                {
+                    path: 'Profile',
+                    component: () => import('../views/UserProfile.vue')
+                },
+                {
+                    path: 'Posts',
+                    component: () => import('../views/UserPosts.vue')
+                },
+            ]
         },
+        {
+            path: '/old/:id',
+            redirect: to => {
+                // 方法接收目标路由作为参数
+                // return 重定向的字符串路径/路径对象
+                return { path: '/new/' + to.params.id }
+            },
+        }
     ]
 })
 

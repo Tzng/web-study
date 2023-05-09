@@ -3,38 +3,51 @@
         <h1>0417 路由</h1>
     </div>
     <div>
-      <RouterLink to="/new" ><button @click="toNew">点击跳转到new页面</button></RouterLink>
-
+        <p>
+            <RouterLink to="/new/12/张三?fileId=474e7d33859ba76d3651d6b7da7951c1&a=1&b=1">
+                点击跳转到new页面
+            </RouterLink>
+        </p>
+        <p>
+            <RouterLink to="/old/12">
+                点击跳转到old页面
+            </RouterLink>
+        </p>
+        <p>
+            <RouterLink to="/new/12/Profile">
+                UserProfile
+            </RouterLink>
+        </p>
+        <p>
+            <RouterLink to="/new/12/Posts">
+                UserPosts
+            </RouterLink>
+        </p>
+        <button @click="toNew">点击跳转到new页面</button>
     </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
-import {createRouter, createWebHashHistory} from "vue-router";
-import Router from "@/router";
+import {useRouter} from "vue-router";
 
-const time = ref();
+const router = useRouter();
+
 const toNew = () => {
- time.value= new Date().toLocaleString();
+    const date = new Date().toLocaleString();
+    console.log(date);
+    router.push("/new?date=" + date);
 }
-//1.定义路由组件
-const Time = {template:'<div>Time</div>'}
-//2.定义一些路由，每个路由都需要映射到一个组件
-const routes = [
-  {path:'/new',component:Router}
-]
-//3.创建router实例，然后传入routes配置
-const router = createRouter({
-  history: createWebHashHistory(),//4.history模式,hash模式
-  routes,//缩写，相当于routes:routes
-})
-//5.挂载路由
 </script>
 <style>
-h2{
+h2 {
     margin-top: 10px;
 }
+
 button {
     margin: 10px;
+}
+
+p {
+    margin-bottom: 10px;
 }
 </style>
