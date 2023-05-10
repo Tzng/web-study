@@ -23,6 +23,7 @@
                 UserPosts
             </RouterLink>
         </p>
+        <Card2 />
         <button @click="toNew">点击跳转到new页面</button>
     </div>
 </template>
