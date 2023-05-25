@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const CommService = {
     /**
      * 地区列表
@@ -16,6 +18,19 @@ const CommService = {
         });
         const json = await  res.json();
         return json.result;
+    },
+    /**
+     * 地区列表
+     */
+    areaListAxios: async (pcode?: string) => {
+        const response = await axios({
+            method: 'post',
+            url: 'https://api.jyfwyun.com/cloud-service/cross/regionList',
+            params: {
+                pcode,
+            }
+        });
+        return response.data.result
     },
     /**
      * 获取主题数据

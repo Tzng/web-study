@@ -36,9 +36,14 @@ const router = createRouter({
             component: () => import('../views/S0418Components.vue')
         },
         {
-            path: '/fetch',
-            name: '网络请求',
+            path: '/fetch2',
+            name: 'fetch2',
             component: () => import('../views/S0419Fetch.vue')
+        },
+        {
+            path: '/nodeModules',
+            name: 'nodeModules',
+            component: () => import('../views/S0420node_modules.vue')
         },
         {
             path: '/new/:id',

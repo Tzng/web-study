@@ -11,8 +11,8 @@ import {RouterLink, RouterView} from 'vue-router'</script>
             <RouterLink to="/todolist3">2023年4月16日待办列表三</RouterLink>
             <RouterLink to="/router">2023年4月17日路由</RouterLink>
             <RouterLink to="/components">2023年4月18日</RouterLink>
-            <RouterLink to="/fetch">2023年4月19日</RouterLink>
-
+            <RouterLink to="/fetch2">2023年4月19日fetch</RouterLink>
+            <RouterLink to="/nodeModules">2023年4月20日node_modules</RouterLink>
         </div>
     </header>
     <main>
