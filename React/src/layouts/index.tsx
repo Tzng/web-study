@@ -14,6 +14,9 @@ export default function Layout() {
         <li>
           <Link to="/tutorial">tutorial</Link>
         </li>
+        <li>
+          <Link to="/day1">day1</Link>
+        </li>
       </ul>
       <Outlet />
     </div>
