@@ -1,13 +1,11 @@
 ---
 title: A static site based on dumi
 hero:
-  title: Site
-  description: A static site based on dumi
+  title: Web全栈工程师
+  description: 全新学习计划
   actions:
-    - text: Hello
-      link: /
-    - text: World
-      link: /
+    - text: 立即开始
+      link: /guide
 features:
   - title: Hello
     emoji: 💎

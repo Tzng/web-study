@@ -1,10 +1,10 @@
 {
-  "name": "",
+  "name": "study_plan",
   "version": "0.0.1",
   "description": "A static site based on dumi",
   "scripts": {
     "start": "npm run dev",
-    "dev": "dumi dev",
+    "study_plan_dev": "dumi dev",
     "build": "dumi build",
     "prepare": "husky install && dumi setup"
   },
